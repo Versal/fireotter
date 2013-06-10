@@ -1,0 +1,5 @@
+test,function,input,expected output
+1 + 1 = 2,add,"1,1",2
+2 - 1 = 1,subtract,"2,1",1
+2 * 3 = 6,multiply,"2,3",6
+6 / 3 = 2,divide,"6,3",2
