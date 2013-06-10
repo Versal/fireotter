@@ -30,10 +30,10 @@ Now you can run through the usual TDD loop:
 
 <table>
   <tr><th>test</th><th>function</th><th>input</th><th>expected output</th></tr>
-  <tr><td>1 + 1 = 2</td><td>add</td><td>"1</td><td>1"</td><td>2</td></tr>
-  <tr><td>2 - 1 = 1</td><td>subtract</td><td>"2</td><td>1"</td><td>1</td></tr>
-  <tr><td>2 * 3 = 6</td><td>multiply</td><td>"2</td><td>3"</td><td>6</td></tr>
-  <tr><td>6 / 3 = 2</td><td>divide</td><td>"6</td><td>3"</td><td>2</td></tr>
+  <tr><td>1 + 1 = 2</td><td>add</td><td>"1, 1"</td><td>2</td></tr>
+  <tr><td>2 - 1 = 1</td><td>subtract</td><td>"2, 1"</td><td>1</td></tr>
+  <tr><td>2 * 3 = 6</td><td>multiply</td><td>"2, 3"</td><td>6</td></tr>
+  <tr><td>6 / 3 = 2</td><td>divide</td><td>"6, 3"</td><td>2</td></tr>
 </table>
 
 *Code under test:*
