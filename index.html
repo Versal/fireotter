@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-US">
+<head>
+<title>FireOtter</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="duration" content="5" />
+<link rel="stylesheet" href="http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" type="text/css" />
+<script src="http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js" charset="utf-8" type="text/javascript">
+</script>
+<style type-"text.css">
+table { margin-top: 25px; border-right: 1px solid #dddddd; border-bottom: 1px solid #dddddd; border-spacing: 0; border-collapse: collapse;}
+th,td { border-top: 1px solid #dddddd; border-left: 1px solid #dddddd; }
+td { background-color: #f6f6f6; color: #333333; padding: 6px 13px 6px 13px; }
+div.cover { text-align: center; margin-top: 10%; }
+div.cover h1 { margin: 0; padding: 0 }
+div.cover p { margin-left: 0; margin-right: 0; padding: 0 }
+p.link { margin-top: 25px; }
+p.location { margin-top: 25px; }
+p.author { margin-top: 25px; }
+p.author { margin-top: 25px; }
+</style>
+</head>
+<body>
+
+<div class="cover slide">
+<h1>TDD with FireOtter</h1>
+
+<p class="location">ScalaDays 2013
+
+<p class="author">James Earl Douglas
+<br /><a href="https://twitter.com/jearldouglas">@jearldouglas</a>
+
+<p class="link"><a href="https://github.com/Versal/fireotter">github.com/Versal/fireotter</a>
+
+</div>
+
+<div class="slide">
+<h1>Agenda</h1>
+
+<ul>
+<li>Motivation</li>
+<li>Technical overview</li>
+<li>Demo</li>
+</ul>
+
+</div>
+
+<div class="slide">
+<h1>Motivation</h1>
+
+<ul>
+<li>Testing is good</li>
+<li>Specifications are good</li>
+<li>Test code is noisy</li>
+</ul>
+
+</div>
+
+<div class="slide">
+<h1>Motivation</h1>
+
+<pre>
+test("1 + 1 = 2") {                             
+  val input1 = 1                                
+  val input2 = 1                                
+  val expectedOutput = 2                        
+  val output = Arithmetic.add(input1, input2)   
+  assert(output === expectedOutput)             
+}
+</pre>
+
+</div>
+
+<div class="slide">
+<h1>Motivation</h1>
+
+<p>Test code is a side-effect of test specification
+
+<ul>
+  <li>Usually happens only implicitly</li>
+  <li>Specification is reverse-engineered by reading the test code</li>
+  <li>Vulnerable to misinterpretation and forgetfulness</li>
+</ul>
+
+</div>
+
+<div class="slide">
+<h1>Motivation</h1>
+
+<p>Specify tests before (or without) coding them.
+
+<table>
+  <tr><th>test</th><th>function</th><th>input</th><th>expected output</th></tr>
+  <tr><td>1 + 1 = 2</td><td>add</td><td>1, 1</td><td>2</td></tr>
+</table>
+ 
+</div>
+
+<div class="slide">
+<h1>Technical overview</h1>
+
+<pre>
+package com.versal.fireotter                      
+
+def csv(path: String): Traversable[Seq[String]]
+</pre>  
+
+<pre>
+import com.versal.fireotter._
+
+val specs: Traversable[Seq[String]] = csv(resource("arithmetic.csv"))
+
+specs foreach { spec =&gt;
+  // Seq[String] =&gt; extract testable inputs, expected output
+  test(spec(0)) { assert(output === expectedOutput) }
+}
+</pre>
+
+</div>
+
+<div class="slide">
+<h1>Technical overview</h1>
+
+<p style="font-weight: bold">Wait, isn't this just a CSV parser?
+
+<p class="incremental">Yeah, pretty much.
+
+<p class="incremental" style="font-weight: bold">What's benefit of following this pattern?
+
+<p class="incremental">Test specifications are tangible, and transcend implementation details.
+
+</div>
+
+<div class="slide">
+<h1>Demo</h1>
+
+<p>TDD with FireOtter
+
+<p><a href="https://github.com/Versal/kawauso">github.com/Versal/kawauso</a>
+
+</div>
+
+</body>
+</html>
