@@ -7,9 +7,7 @@ FireOtter is a simple CSV parsing library for building tests on human-readable, 
 Add FireOtter to the list of dependencies in build.sbt:
 
 ```
-resolvers += "sonatype-snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
-
-libraryDependencies += "com.versal" %% "fireotter" % "0.1.0-SNAPSHOT" % "test"
+libraryDependencies += "com.versal" %% "fireotter" % "0.1.0" % "test"
 ```
 
 ## How it works

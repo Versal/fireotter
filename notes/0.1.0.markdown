@@ -1,0 +1,5 @@
+Initial release.
+
+### Features
+
+* Rudimentary CSV parsing
